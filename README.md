@@ -5,7 +5,7 @@ Expects the following in root folder:
 - adm1 ssh key
 - Nessus-License in playbook_update.yaml
 
-Also expects the Hetzner-API-Token as first input.
+Also expects the Hetzner-API-Token as first input and working ansible-installation.
 
 HowTo:
 
