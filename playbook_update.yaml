@@ -1,0 +1,17 @@
+- name: Update all the thingzz
+  hosts: virtualmachines
+  become: yes
+  tasks:
+   - name: Ping hosts
+     ansible.builtin.ping:
+   - name: Update Nessus
+     shell: systemctl stop nessusd && /opt/nessus/sbin/nessuscli fetch --register YOUR_NESSUS_LICENSE && systemctl start nessusd
+   - name: Update packages
+     apt:
+       update_cache: yes
+       upgrade: full
+       state: latest
+       autoremove: yes
+       autoclean: yes
+   - name: Reboot machine
+     ansible.builtin.reboot:
